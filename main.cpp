@@ -1,27 +1,17 @@
 #include <iostream>
-#include <vector>
+#include <math.h>
 int main() {
-    double h;
-    double m;
-    std::cout << "enter h" << std::endl;
-    std::cin>>h;
-    std::cout << "enter m" << std::endl;
-    std::cin>>m;
-    if (h > m){
-        std::cerr << "h must be less than m";
-        return 0;
+    double x;
+    double y;
+    std::cout << "enter x"<< std::endl;
+    std::cin >> x;
+    std::cout << "enter y"<< std::endl;
+    std::cin >> y;
+    double h = sqrt(x*x + y*y);
+    double r = 1;
+    if (x<=0 && x>=-1 && h < r){
+        std::cout << "the point belong to the shaded plane" << std::endl;
+    } else{
+        std::cout << "the point does not belong to the shaded plane" << std::endl;
     }
-    double n =0;
-    int k =0;
-    double i = 1;
-    while (m>n){
-        n = ((2*i-1)*2)/i;
-        std::cout << n << std::endl;
-        if (n>=h && n <= m){
-            k++;
-        }
-        i++;
-    }
-
-    std::cout << k << std::endl;
 }
