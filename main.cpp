@@ -1,20 +1,21 @@
 #include <iostream>
 #include <math.h>
 int main() {
-   double f,a,b;
-   int c;
-   int p =2;
-   std::cin>>a;
-   if (a>=0){
-       c= a/p;
-       b= a/p;
-       a = (b-c)*p;
-   }else{
-       if(a<0){
-        c =(-a)/p;
-        a = (c+1)*p+a;
-       }
-   }
-   f = pow(a,3)-5;
-   std::cout << f << std::endl;
+    double x;
+    double y;
+    std::cout << "enter x" << std::endl;
+    std::cin>> x;
+    std::cout << "enter y" << std::endl;
+    std::cin>> y;
+    double f;
+    if (x<y){
+        f = x-2*y+x*y;
+    } else{
+        if(x==y){
+            f = sin(x)*x;
+        } else{
+            f = y-2*x+1;
+        }
+    }
+    std::cout << f << std::endl;
 }
