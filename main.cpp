@@ -2,27 +2,52 @@
 #include <cstdlib>
 #include "ctime"
 #include <vector>
-int main() {
-    int n;
-    std::cout << "enter arr size"<< std::endl;
-    std::cin >> n;
-    std::vector<int> rand_arr(n);
-    srand(time(NULL));
-    for (int i =0; i < n; i++){
-        rand_arr[i] = -49+rand()%99;
-    }
-    std::vector<int> arr;
-    for (int i =0; i < n; i++){
-        std::cout << rand_arr[i] << std::endl;
-        if (rand_arr[i] % 2 != 0 && rand_arr[i] < 0){
-            arr.push_back(rand_arr[i]);
+struct Student
+{
+    std::string Name;
+    int Ratings[2];
+    std::string Subjects[2];
+};
+std::vector<Student> sort_by_middle(std::vector<Student> students){
+    std::vector<double> middleMarks(students.size());
+    for (unsigned long i =0; i < students.size(); i++){
+        for (unsigned long j =0; j < 2; j++){
+            middleMarks[i] += students[i].Ratings[j];
         }
+        middleMarks[i] = middleMarks[i]/2;
     }
-    if (arr.empty()){
-        std::cout <<" there no numbers thah match the condition" << std::endl;
-    }
-    for (int i = 0; i< arr.size();i++){
-        std::cout << arr[i] << std::endl;
-    }
+    Student count;
+    for(unsigned long i = students.size() - 1; i >= 1; i--) {
+        for (unsigned long j = 0; j < i; j++) {
+            if (middleMarks[j] < middleMarks[j + 1]) {
+                double foo = middleMarks[j];
+                middleMarks[j] = middleMarks[j + 1];
+                middleMarks[j+1] = foo;
+                count = students[j];
+                students[j] = students[j+1];
+                students[j+1] = count;
+            }
+        }
+}
+    return students;
+}
 
+int main() {
+    int k;
+    std::vector<Student> stud(3);
+    for (int i =0; i< stud.size(); i++){
+        std::cout << "enter the name of the student"<< std::endl;
+        std::cin>> stud[i].Name;
+        for (int j =0; j<2; j++){
+            std::cout << "enter the Subject"<< std::endl;
+            std::cin>> stud[i].Subjects[j];
+            std::cout << "enter the Rating" << std::endl;
+            std::cin>> stud[i].Ratings[j];
+        }
+
+    }
+   std::vector<Student>sort_students =  sort_by_middle(stud);
+    for (int i =0; i < sort_students.size(); i++){
+        std::cout << sort_students[i].Name << std::endl;
+    }
 }
