@@ -1,19 +1,17 @@
 #include <iostream>
-#include <vector>
+#include <math.h>
 
 int main() {
- int k;
- std::cout << "enter a fibonacci end" << std::endl;
- std::cin >> k;
- int sum = 1;
- int a = 1;
- int b = 0;
- int z;
- for (int i =0; i< k-1; i++){//k-1 тк sum уже принила значение первого элемента равного единице
-     z = a;
-     a = a+b;
-     sum+=a;
-     b = z;
- }
- std::cout << sum << std::endl;
+    double k = pow(10, -4);
+    std::cout << k << std::endl;
+    double sum = 0;
+    double i = 1;
+    double x = i;
+    while(x>k){
+        x =(1/(i*(i+1)));
+        sum += x;
+        i++;
+    }
+    std::cout << i << std::endl;
+    std::cout << sum << std::endl;
 }
