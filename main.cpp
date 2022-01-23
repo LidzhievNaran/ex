@@ -14,4 +14,5 @@ int main() {
     }
     std::cout << i << std::endl;
     std::cout << sum << std::endl;
+
 }
