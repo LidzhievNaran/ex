@@ -1,22 +1,27 @@
 #include <iostream>
 #include <vector>
 int main() {
-    int x =0;
-    int x1 = -99;
-    int x2 = -99;
-    std::vector<int> arr;
-    while (x<=0)
-    {
-        x = x1+x2+120;
-        x2 = x1;
-        x1 = x;
-        arr.push_back(x);
+    double h;
+    double m;
+    std::cout << "enter h" << std::endl;
+    std::cin>>h;
+    std::cout << "enter m" << std::endl;
+    std::cin>>m;
+    if (h > m){
+        std::cerr << "h must be less than m";
+        return 0;
     }
-    int min = arr[0];
-    for (int i =0; i< arr.size(); i++){
-        if (arr[i] < min)
-            min = arr[i];
-        std::cout << arr[i] << std::endl;
+    double n =0;
+    int k =0;
+    double i = 1;
+    while (m>n){
+        n = ((2*i-1)*2)/i;
+        std::cout << n << std::endl;
+        if (n>=h && n <= m){
+            k++;
+        }
+        i++;
     }
-    std::cout << min << std::endl;
+
+    std::cout << k << std::endl;
 }
